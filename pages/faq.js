@@ -17,22 +17,22 @@ function Faq() {
       display: "flex",
       flexDirection: "column",
       gap: 1,
-      bgcolor: 'black',
-      color: 'white',
+      bgcolor: "black",
+      color: "white",
       textAlign: "center",
       alignItems: "center",
       width: "100%",
       py: 10,
     },
     body: {
-        maxWidth: '85ch',
-    }
+      maxWidth: "85ch",
+    },
   };
 
   return (
     <Box sx={styles.container}>
-      {Object.entries(content).map((e) => (
-        <Typography variant={"h6"} component={"body1"} sx={styles.body}>
+      {Object.entries(content).map((e, i) => (
+        <Typography key={i} variant={"h6"} component={"body1"} sx={styles.body}>
           {e[1]}
         </Typography>
       ))}

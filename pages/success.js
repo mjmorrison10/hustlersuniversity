@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import EnrollBtn from "../components/enrollBtn";
+import Image from "next/image";
 
 function Success() {
   const content = {
@@ -20,15 +21,27 @@ function Success() {
       width: "100%",
       py: 10,
     },
+    img: {
+      component: "picture",
+      height: 300,
+      width: 300,
+    },
   };
 
   return (
     <Box sx={styles.container}>
-      {Object.entries(content).map((e) =>
+      {Object.entries(content).map((e, i) =>
         e[0].includes("img") ? (
-          <img src={e[1]} />
+          <Box sx={styles.img} component={styles.img.component}>
+            <Image key={i} src={e[1]} height={styles.img.height} width={styles.img.width} />
+          </Box>
         ) : (
-          <Typography variant={"h6"} component={"body1"} sx={styles.body}>
+          <Typography
+            key={i}
+            variant={"h6"}
+            component={"body1"}
+            sx={styles.body}
+          >
             {e[1]}
           </Typography>
         )
