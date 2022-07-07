@@ -7,9 +7,9 @@ function About() {
     h2: `You were never this close to becoming rich.`,
     body01: `Enrollment will give you exclusive access to:`,
     body02: `Stock analysis, Options plays, Crypto analysis, DeFi, E-commerce, Copywriting, Freelancing, Flipping, Financial planning, Affiliate Marketing, Business management, and MORE.`,
-    img01: `img`,
-    img02: `img`,
-    img03: `img`,
+    img01: `/images/about01.jpg`,
+    img02: `/images/about02.jpg`,
+    img03: `/images/about03.jpg`,
     body03: `Every professor is verified by me personally. Each one of them is making anywhere from 10k to 500k a month in their select field.`,
     body04: `I chose fields that`,
     body05: `ANYONE ANYWHERE can do NOW to get rich.`,
@@ -43,6 +43,7 @@ function About() {
   return (
     <Box sx={styles.container}>
       {Object.entries(content).map((e) => (
+        e[0].includes("img") ? <img src={e[1]} /> :
         <Typography variant={"h6"} component={"body1"} sx={styles.body}>{e[1]}</Typography>
       ))}
     </Box>
