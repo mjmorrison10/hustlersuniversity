@@ -23,7 +23,7 @@ function Introduction() {
       py: 10,
     },
     h1: {
-      variant: "h2",
+      variant: "h1",
       component: "h1",
     },
     video: {

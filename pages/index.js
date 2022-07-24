@@ -7,6 +7,8 @@ import About from "./api/about";
 import Faq from "./faq";
 import Introduction from "./Introduction";
 import Success from "./success";
+import { hotjar } from "react-hotjar";
+
 
 export default function Home() {
   const content = {
@@ -26,6 +28,17 @@ export default function Home() {
     alignItems: "center",
   };
 
+  
+  // componentDidMount() {
+  //   hotjar.initialize(3069416, 6)
+  // }
+
+  
+  // hotjar.initialize(3069416, 6);
+
+  // Identify the user
+  // hotjar.identify("USER_ID", { userProperty: "value" });
+
   return (
     <Box sx={containerStyles} component={containerStyles.component}>
       <Head>
@@ -34,6 +47,7 @@ export default function Home() {
           name={content.head.meta.name}
           content={content.head.meta.content}
         />
+        
 
         <link rel="icon" href="/images/icon.jpg" />
       </Head>

@@ -5,9 +5,10 @@ import Image from "next/image";
 
 function About() {
   const content = {
-    h2: `You were never this close to becoming rich.`,
+    h2bold: <Box>never</Box>,
+    h2: `You were  this close to becoming rich.`,
     body01: `Enrollment will give you exclusive access to:`,
-    body02: `Stock analysis, Options plays, Crypto analysis, DeFi, E-commerce, Copywriting, Freelancing, Flipping, Financial planning, Affiliate Marketing, Business management, and MORE.`,
+    body02: `Stock analysis, Options plays, Crypto analysis, DeFi, E-commerce, Copywriting, Freelancing, Flipping, Financial planning, Business management, and MORE.`,
     img01: `/images/about01.jpg`,
     img02: `/images/about02.jpg`,
     img03: `/images/about03.jpg`,
@@ -40,20 +41,66 @@ function About() {
       maxWidth: "85ch",
     },
     img: {
-        component: "picture",
-        height: 300,
-        width: 300,
-      },
+      component: "picture",
+      height: 300,
+      width: 300,
+    },
   };
 
   return (
     <Box sx={styles.container}>
+      <Typography variant={"h1"} component={"h2"}>
+        You were{" "}
+        <Box component={"span"} sx={{ fontWeight: "bold" }}>
+          never
+        </Box>{" "}
+        <Box component={"span"} sx={{ textDecoration: "underline" }}>
+          this
+        </Box>{" "}
+        close to becoming rich.
+      </Typography>
+      <Typography
+        variant={"h4"}
+        component={"body1"}
+        fontWeight={"bold"}
+        sx={styles.body}
+      >
+        {content.body01}
+      </Typography>
+      <Typography variant={"h4"} component={"body1"} sx={styles.body}>
+        Stock analysis, Options plays, Crypto analysis, DeFi, E-commerce,
+        Copywriting, Freelancing, Flipping, Financial planning, Affiliate
+        Marketing, Business management,{" "}
+        <Box component={"span"} fontWeight={"bold"}>
+          and MORE
+        </Box>
+        .
+      </Typography>
+
+      <Box sx={styles.img} component={styles.img.component}>
+        <Image
+          src={content.img01}
+          height={styles.img.height}
+          width={styles.img.width}
+        />
+      </Box>
+      <Box sx={styles.img} component={styles.img.component}>
+        <Image
+          src={content.img02}
+          height={styles.img.height}
+          width={styles.img.width}
+        />
+      </Box>
+      <Box sx={styles.img} component={styles.img.component}>
+        <Image
+          src={content.img03}
+          height={styles.img.height}
+          width={styles.img.width}
+        />
+      </Box>
+
       {Object.entries(content).map((e, i) =>
-        e[0].includes("img") ? (
-            <Box sx={styles.img} component={styles.img.component}>
-            <Image key={i} src={e[1]} height={styles.img.height} width={styles.img.width} />
-          </Box>
-        ) : (
+        i > 6 && i < Object.entries(content).length - 1 ? (
           <Typography
             key={i}
             variant={"h6"}
@@ -62,8 +109,10 @@ function About() {
           >
             {e[1]}
           </Typography>
-        )
+        ) : null
       )}
+
+      {content.btn}
     </Box>
   );
 }
